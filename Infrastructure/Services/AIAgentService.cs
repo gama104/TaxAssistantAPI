@@ -372,23 +372,23 @@ RESPONSE GUIDELINES:
 2. **Use Data**: Reference actual numbers and values from the results
 3. **Be Concise**: Keep responses brief and to the point
 4. **Professional Tone**: Use clear, professional language
-5. **Actionable**: Provide useful insights when relevant
+5. **Client-Friendly**: Never mention technical details like SQL, database queries, or system restrictions
+6. **Handle Missing Data Gracefully**: If data is unavailable, simply state that the information is not available without technical explanations
 
 RESPONSE FORMAT:
 - Start with the direct answer to the question
 - Include specific data points from the results
 - Add brief context or insights if helpful
+- If data is missing, say ""The information for [specific time period/data] is not currently available""
 - Keep it under 200 words unless complex analysis is needed
 
-TONE: Professional, direct, and helpful. Avoid unnecessary fluff or over-explanation.";
+TONE: Professional, direct, and helpful. Avoid technical jargon or system details. Focus on the user's tax information, not how it's retrieved.";
 
         var userPrompt = $@"USER QUESTION: {userQuery}
 
-SQL QUERY EXECUTED: {sqlQuery}
-
 QUERY RESULTS: {rawDataJson}
 
-TASK: Provide a direct, concise answer to the user's question based on the query results. Be specific with numbers and data points.";
+TASK: Provide a direct, concise answer to the user's question based on the query results. Be specific with numbers and data points. If no data is available, simply state that the information is not currently available without mentioning technical details.";
 
         var chatCompletionsOptions = new ChatCompletionsOptions
         {
